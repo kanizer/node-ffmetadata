@@ -1,7 +1,7 @@
 {
-  "name": "ffmetadata",
+  "name": "plode-ffmetadata",
   "version": "1.5.0",
-  "description": "Read and write media metadata using ffmpeg",
+  "description": "Read and write media metadata using ffmpeg - branch for binary assignment",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:parshap/node-ffmetadata.git"
+    "url": "git@github.com:kanizer/node-ffmetadata.git"
   },
   "keywords": [
     "music",
@@ -25,7 +25,7 @@
   "author": "Parsha Pourkhomami",
   "license": "Public Domain",
   "bugs": {
-    "url": "https://github.com/parshap/node-ffmetadata/issues"
+    "url": "https://github.com/kanizer/node-ffmetadata/issues"
   },
   "dependencies": {
     "concat-stream": "~1.0.0",

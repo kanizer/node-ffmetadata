@@ -19,7 +19,8 @@ module.exports.read = function(src, options, callback) {
 		return args;
 	}
 
-	var proc = spawnRead(args),
+	// allow assignment of ffmpeg binary - electron doesn't allow ENV_VARS
+	var proc = spawnRead(args, options.ffmpeg),
 		stream = through(),
 		output = parseini(),
 		error = concat();
@@ -62,6 +63,9 @@ module.exports.write = function(src, data, options, callback) {
 	if (options.dryRun) {
 		return args;
 	}
+
+	// allow assignment of ffmpeg binary - electron doesn't allow ENV_VARS
+	ffmpeg = options.ffmpeg ? spawn.bind(null, options.ffmpeg) : ffmpeg;
 
 	var proc = ffmpeg(args),
 		stream = through(),
@@ -141,7 +145,10 @@ function getReadArgs(src, options) {
 	];
 }
 
-function spawnRead(args) {
+function spawnRead(args, binaryPath) {
+	// allow assignment of ffmpeg binary - electron doesn't allow ENV_VARS
+	ffmpeg = options.ffmpeg ? spawn.bind(null, binaryPath) : ffmpeg;
+
 	return ffmpeg(args, { detached: true, encoding: "binary" });
 }
 
